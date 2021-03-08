@@ -51,7 +51,7 @@ var numeroComputer = randomNum(1,5);
 console.log("numero random computer: " + numeroComputer);
 console.log("numero utente: " + numeroUtente);
 
-sommaNumeri(numeroUtente, numeroUtente);
+sommaNumeri(numeroUtente, numeroComputer);
 console.log(numeroUtente + numeroComputer);
 
 
@@ -61,7 +61,7 @@ function randomNum(min, max){
 }
 
 function sommaNumeri(num1, num2){
-  var somma = num1 + num2;
+  var somma = parseInt(num1 + num2);
 
   if (somma%2 == 0) {
     console.log("La somma è pari");
@@ -71,7 +71,11 @@ function sommaNumeri(num1, num2){
 
   if (sceltaUtente == "pari" && somma%2 == 0) {
     console.log("Vince l'utente");
-  } else {
+  } else if(sceltaUtente == "dispari" && somma%2 == 0){
     console.log("Vince il computer");
+  } else if (sceltaUtente == "pari" && somma%2 == 1){
+    console.log("Vince il computer");
+  } else {
+    console.log("Vince l'utente");
   }
 }
