@@ -26,41 +26,54 @@ function parolaPalindroma(string){
 // Dichiariamo chi ha vinto.
 
 
+
+
+// verifico se l'utente scegli pari o dispari
 var condizione = true;
 while (condizione) {
   var sceltaUtente = prompt("pari o dispari?");
   switch (sceltaUtente) {
     case "pari":
       condizione = false;
-      sommaNumeri(numeroUtente, numeroComputer);
-
-
       break;
     case "dispari":
-    condizione = false;
-    sommaNumeri(numeroUtente, numeroComputer);
+      condizione = false;
       break;
   }
 }
 
-var numeroUtente = parseInt(prompt("Inserisci un numero da 1 a 5"));
-randomNum(1,5);
+// verifico che l'utente inserisca numero da 1 a 5
+do {
+  var numeroUtente = parseInt(prompt("Inserisci un numero da 1 a 5"));
+} while (!(numeroUtente >= 1 && numeroUtente <= 5));
+
+var numeroComputer = randomNum(1,5);
+console.log("numero random computer: " + numeroComputer);
+console.log("numero utente: " + numeroUtente);
+
+sommaNumeri(numeroUtente, numeroUtente);
+console.log(numeroUtente + numeroComputer);
 
 
 // function
 function randomNum(min, max){
-  var numeroComputer = Math.random() * (max - min) + min;
-  return numeroComputer;
+  return parseInt(Math.random() * (max - min) + min);
 }
 
 function sommaNumeri(num1, num2){
   var somma = num1 + num2;
 
-  if(somma%2){
-    console.log("somma è dispari");
-  } else {
-    console.log("somma è pari");
+  if(somma%2 && sceltaUtente == "dispari"){
+    console.log("ha vinto l'utente");
+  } else if(somma%2 && sceltaUtente == "pari") {
+    console.log("vince il computer");
+  } else if(!(somma%2) && sceltaUtente == "dispari") {
+    console.log("vince il computer");
   }
+  else if(!(somma%2) && sceltaUtente == "pari") {
+    console.log("ha vinto l'utente");
+  }
+
 
   return somma;
 }
