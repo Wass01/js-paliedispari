@@ -63,12 +63,15 @@ function randomNum(min, max){
 function sommaNumeri(num1, num2){
   var somma = parseInt(num1 + num2);
 
+  // condizione per vedere se la somma è pari o dispari
   if (somma%2 == 0) {
     console.log("La somma è pari");
   } else {
     console.log("La somma è dispari");
   }
 
+
+  // condizione per verificare chi vince
   if (sceltaUtente == "pari" && somma%2 == 0) {
     console.log("Vince l'utente");
   } else if(sceltaUtente == "dispari" && somma%2 == 0){
